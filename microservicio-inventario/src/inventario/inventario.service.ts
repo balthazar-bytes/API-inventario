@@ -13,7 +13,7 @@ export interface Inventario {
 export class InventarioService {
     private inventario: Inventario[] = [];
 
-
+    //GET
     findAll(){
         return this.inventario;
     }
@@ -22,7 +22,7 @@ export class InventarioService {
         return this.inventario.find(i => i.id === id);
     }
 
-
+    //UPDATE
     updateStock(id:number,stock:number){
         const index = this.inventario.findIndex(i  => i.id === id);
         if(index !== -1){
@@ -47,7 +47,7 @@ export class InventarioService {
             return null
         }
     }
-
+    //DELETE
 
     deleteArt(id:number){
         const index = this.inventario.findIndex(i => i.id === id);
@@ -61,7 +61,7 @@ export class InventarioService {
 
     }
 
-
+    //CREATE
     createArt(name:string,stock:number,price:number){
         const cantidad = this.inventario.length + 1;
         const arcticulo: Inventario ={
