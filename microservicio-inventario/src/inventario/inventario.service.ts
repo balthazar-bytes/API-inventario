@@ -11,7 +11,9 @@ export interface Inventario {
 
 @Injectable()
 export class InventarioService {
-    private inventario: Inventario[] = [];
+    private inventario: Inventario[] = [
+        {id:1,name:"papel", price:10, stock:11}
+    ];
 
     //GET
     findAll(){
