@@ -40,13 +40,13 @@ export class InventarioController {
   @Delete(":id")
   deleteArt(@Param('id') id:string){
     const Borrado = this.inventarioService.deleteArt(+id);
-    if(Borrado){
-      return{message: 'Articulo eliminado'};
+    // if(Borrado){
+    //   return{message: 'Articulo eliminado'};
 
-    }
-    else{
-      return {message: 'Articulo no encontrado'};
-    }
+    // }
+    // else{
+    //   return {message: 'Articulo no encontrado'};
+    // }
   }
 
 
