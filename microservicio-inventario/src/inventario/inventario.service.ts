@@ -146,4 +146,27 @@ export class InventarioService {
         // return this.inventario;
     }
 
+
+
+    async Vender(id:number, cantidad:number){
+        const articulo = await this.inventario.findOneBy({id});
+        if ( articulo)
+        {
+            if(articulo.stock > cantidad)
+            {
+                articulo.stock = articulo.stock - cantidad;
+                return this.inventario.save(articulo);
+            }
+            else{
+                console.log('Cantidad insuficiente');
+                return null;
+            }
+        }
+        console.log('Aerticulo no encontrado');
+        return null;
+    }
+
 }
+
+
+

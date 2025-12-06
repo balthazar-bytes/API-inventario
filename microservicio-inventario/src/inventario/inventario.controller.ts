@@ -56,4 +56,8 @@ export class InventarioController {
     return this.inventarioService.createArt(body.name,body.stock,body.price);
   }
 
+  @Post(':id')
+  Venta(@Param('id') id:string,@Body() Body:{cantidad:number}){
+    return this.inventarioService.Vender(+id,Body.cantidad);
+  }
 }
