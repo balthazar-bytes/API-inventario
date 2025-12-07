@@ -152,7 +152,7 @@ export class InventarioService {
         const articulo = await this.inventario.findOneBy({id});
         if ( articulo)
         {
-            if(articulo.stock > cantidad)
+            if(articulo.stock >= cantidad)
             {
                 articulo.stock = articulo.stock - cantidad;
                 return this.inventario.save(articulo);

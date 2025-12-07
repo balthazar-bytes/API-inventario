@@ -1,7 +1,7 @@
 import { CreateArticleDTO } from './create-inventario.dto';
 import { InventarioService, Inventario } from './inventario.service';
 import { Controller,Get,Patch,Param,Body,Post,Delete } from '@nestjs/common';
-
+import { ventaDto } from './inventario-ventas.dto';
 @Controller('inventario')
 export class InventarioController {
   constructor(private readonly inventarioService: InventarioService) {}
@@ -56,8 +56,8 @@ export class InventarioController {
     return this.inventarioService.createArt(body.name,body.stock,body.price);
   }
 
-  @Post(':id')
-  Venta(@Param('id') id:string,@Body() Body:{cantidad:number}){
-    return this.inventarioService.Vender(+id,Body.cantidad);
+  @Post(':id/compra')
+  Venta(@Param('id') id:string,@Body()venta:ventaDto){
+    return this.inventarioService.Vender(+id,venta.cantidad);
   }
 }
